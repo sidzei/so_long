@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:14:29 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 18:05:20 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:32:28 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	check_filename(char *filename)
 
 	len = ft_strlen(filename);
 	if (filename[len - 1] != 'r')
-		ft_error();
+		ft_error(3);
 	if (filename[len - 2] != 'e')
-		ft_error();
+		ft_error(3);
 	if (filename[len - 3] != 'b')
-		ft_error();
+		ft_error(3);
 	if (filename[len - 4] != '.')
-		ft_error();
+		ft_error(3);
 }
 
 void	map_border(t_map *map)
@@ -33,23 +33,25 @@ void	map_border(t_map *map)
 
 	i = -1;
 	while (++i < map->rows)
-		if (map->columns != ft_strlen(map->mapp[i]))
-			ft_error();
+		if ((size_t)map->columns != ft_strlen(map->mapp[i]))
+			ft_error(7);
 	i = -1;
-	while (++i < map->columns)
+	while (++i < map->columns-1)
 	{
-		if (map->mapp[0][i] != 1)
-			ft_error();
-		if (map->mapp[map->rows - 1][i] != 1)
-			ft_error();
+		if (map->mapp[0][i] != '1')
+			ft_error(1);
+		if (map->mapp[map->rows - 1][i] != '1')
+			ft_error(2);
 	}
 	i = -1;
 	while (++i < map->rows)
 	{
-		if (map->mapp[i][0])
-			ft_error();
-		if (map->mapp[i][map->columns - 1])
-			ft_error();
+		ft_printf("%c",map->mapp[i][0]);
+		ft_printf("%c",map->mapp[i][map->columns-2]);
+		if (map->mapp[i][0] != '1')
+			ft_error(3);
+		if (map->mapp[i][map->columns - 2] != '1')
+			ft_error(4);
 	}
 }
 
@@ -76,7 +78,7 @@ void	map_check(t_map *map)
 		}
 	}
 	if (map->e != 1 || map->p != 1)
-		ft_error();
+		ft_error(5);
 }
 void	map_checker(t_map *map)
 {
