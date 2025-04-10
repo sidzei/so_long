@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:14:29 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 20:51:53 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:25:39 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,22 @@ void	map_check(t_map *map)
 
 void	map_checker(t_map *map)
 {
+	int	i;
+	int	j;
+
 	map_check(map);
 	map_border(map);
+	i = -1;
+	while (++i < map->rows)
+	{
+		j = -1;
+		while (++j < map->columns)
+		{
+			if (map->mapp[i][j] == 'P')
+			{
+				map->player.x = i;
+				map->player.y = j;
+			}
+		}
+	}
 }
