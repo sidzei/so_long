@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:14:29 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 20:32:28 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:38:37 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,18 @@ void	map_border(t_map *map)
 		if ((size_t)map->columns != ft_strlen(map->mapp[i]))
 			ft_error(7);
 	i = -1;
-	while (++i < map->columns-1)
+	while (++i < map->columns - 1)
 	{
 		if (map->mapp[0][i] != '1')
-			ft_error(1);
+			ft_error(4);
 		if (map->mapp[map->rows - 1][i] != '1')
-			ft_error(2);
+			ft_error(4);
 	}
 	i = -1;
 	while (++i < map->rows)
 	{
-		ft_printf("%c",map->mapp[i][0]);
-		ft_printf("%c",map->mapp[i][map->columns-2]);
 		if (map->mapp[i][0] != '1')
-			ft_error(3);
+			ft_error(4);
 		if (map->mapp[i][map->columns - 2] != '1')
 			ft_error(4);
 	}
@@ -80,6 +78,7 @@ void	map_check(t_map *map)
 	if (map->e != 1 || map->p != 1)
 		ft_error(5);
 }
+
 void	map_checker(t_map *map)
 {
 	map_check(map);
