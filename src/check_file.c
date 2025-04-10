@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:14:29 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 20:38:37 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:51:53 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	map_border(t_map *map)
 
 	i = -1;
 	while (++i < map->rows)
-		if ((size_t)map->columns != ft_strlen(map->mapp[i]))
+		if ((size_t)map->columns != ft_strlen(map->mapp[i]) - 1)
 			ft_error(7);
 	i = -1;
 	while (++i < map->columns - 1)
@@ -48,7 +48,7 @@ void	map_border(t_map *map)
 	{
 		if (map->mapp[i][0] != '1')
 			ft_error(4);
-		if (map->mapp[i][map->columns - 2] != '1')
+		if (map->mapp[i][map->columns - 1] != '1')
 			ft_error(4);
 	}
 }
@@ -58,15 +58,16 @@ void	map_check(t_map *map)
 	int	i;
 	int	j;
 
-	map->c = 0;
-	map->p = 0;
-	map->e = 0;
 	i = -1;
 	while (++i < map->rows)
 	{
 		j = -1;
 		while (++j < map->columns)
 		{
+			if (map->mapp[i][j] != '1' && map->mapp[i][j] != '0'
+				&& map->mapp[i][j] != 'C' && map->mapp[i][j] != 'E'
+				&& map->mapp[i][j] != 'P')
+				ft_error(5);
 			if (map->mapp[i][j] == 'E')
 				map->e++;
 			if (map->mapp[i][j] == 'P')

@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 16:11:57 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 20:38:00 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:51:16 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	table_counter(t_map *map, char *filename)
 		close(fd);
 		ft_error(1);
 	}
-	map->columns = ft_strlen(line);
+	map->columns = ft_strlen(line) - 1;
 	free(line);
 	map->rows = 1;
 	while (1)

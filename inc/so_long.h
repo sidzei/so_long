@@ -6,17 +6,17 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:19:58 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 20:19:53 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:53:22 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../gnl/get_next_line.h"
-# include "../ft_print/ft_printf.h"
-# include "../libft/libft.h"
 # include "../../mlx_linux/mlx.h"
+# include "../ft_print/ft_printf.h"
+# include "../gnl/get_next_line.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -52,12 +52,10 @@ typedef struct s_map
 	int		rows;
 	int		columns;
 	char	**mapp;
-    void    *mlx;
-    void    *window;
+	void	*mlx;
+	void	*window;
 
 }			t_map;
-
-
 
 void		ft_error(int error);
 void		read_map(t_map *map, char *filename);

@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 16:15:14 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 20:37:56 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:51:20 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ int	main(int argc, char **argv)
 {
 	t_map	map;
 
+	map.c = 0;
+	map.p = 0;
+	map.e = 0;
 	if (argc != 2)
 		ft_error(6);
 	check_filename(argv[1]);
