@@ -6,7 +6,7 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:19:58 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/11 14:33:11 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:33:53 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # define PXL 100
 
-# include "../../mlx_linux/mlx.h"
 # include "../ft_print/ft_printf.h"
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -59,13 +59,15 @@ typedef struct s_map
 
 }				t_map;
 
+void			ft_close(t_map *map);
+int				moves(int keycode, t_map *map);
 void			image_initialzer(t_map *map);
 void			map_maker(t_map *map, int x, int y);
 void			map_printer(t_map *map);
-void			ft_error(int error);
+void			ft_error(int error, t_map *map);
 void			read_map(t_map *map, char *filename);
 void			table_counter(t_map *map, char *filename);
-void			check_filename(char *filename);
+void			check_filename(char *filename, t_map *map);
 void			map_border(t_map *map);
 void			map_check(t_map *map);
 void			map_checker(t_map *map);

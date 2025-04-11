@@ -6,11 +6,40 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 22:01:37 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/11 15:49:28 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/11 18:38:59 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	image_bye(t_map *map)
+{
+	mlx_destroy_image(map->mlx, map->img.c_img);
+	mlx_destroy_image(map->mlx, map->img.es_img);
+	mlx_destroy_image(map->mlx, map->img.e_img);
+	mlx_destroy_image(map->mlx, map->img.player);
+	mlx_destroy_image(map->mlx, map->img.w_img);
+}
+
+void	ft_close(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	while (i < map->rows)
+	{
+		free(map->mapp[i]);
+		i++;
+	}
+	free(map->mapp);
+	image_bye(map);
+	mlx_destroy_window(map->mlx, map->window);
+	mlx_destroy_display(map->mlx);
+	free(map->mlx);
+	exit(0);
+}
 
 void	image_initialzer(t_map *map)
 {

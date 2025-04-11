@@ -1,6 +1,6 @@
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinc -Iminilibx-linux -Ilibft -Ift_print
+CFLAGS = -Wall -Wextra -Werror -g -Iinc -Iminilibx-linux -Ilibft -Ift_print
 
 
 SRC_DIR = src
