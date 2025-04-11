@@ -1,19 +1,21 @@
-# === Kompilator i flagi ===
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iinc -Iminilibx-linux -Ilibft -Ift_print
 
-# === Katalogi ===
+
 SRC_DIR = src
 GNL_DIR = gnl
 MLX_DIR = minilibx-linux
 LIBFT_DIR = libft
 FTPRINT_DIR = ft_print
 
-# === Pliki źródłowe (tylko własne + GNL) ===
+
 SRC = $(addprefix $(SRC_DIR)/, \
 	check_file.c \
 	main.c \
 	read_file.c \
+	img.c \
+	player.c \
 )
 
 GNL = $(addprefix $(GNL_DIR)/, \
@@ -24,17 +26,17 @@ GNL = $(addprefix $(GNL_DIR)/, \
 SRCS = $(SRC) $(GNL)
 OBJS = $(SRCS:.c=.o)
 
-# === Nazwa programu ===
+
 NAME = so_long
 
-# === Gotowe biblioteki ===
+
 LIBS = \
 	-L$(MLX_DIR) -lmlx \
 	-L$(LIBFT_DIR) -lft \
 	-L$(FTPRINT_DIR) -lftprintf \
 	-lX11 -lXext -lm
 
-# === Reguły ===
+
 all: $(LIBFT_DIR)/libft.a $(MLX_DIR)/libmlx.a $(FTPRINT_DIR)/libftprintf.a $(NAME)
 
 $(LIBFT_DIR)/libft.a:

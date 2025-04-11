@@ -6,12 +6,14 @@
 /*   By: sjesione < sjesione@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:19:58 by sjesione          #+#    #+#             */
-/*   Updated: 2025/04/10 21:38:45 by sjesione         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:33:11 by sjesione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define PXL 100
 
 # include "../../mlx_linux/mlx.h"
 # include "../ft_print/ft_printf.h"
@@ -40,8 +42,6 @@ typedef struct s_img
 
 typedef struct s_map
 {
-	int			x;
-	int			y;
 	int			es;
 	int			w;
 	int			c;
@@ -59,6 +59,9 @@ typedef struct s_map
 
 }				t_map;
 
+void			image_initialzer(t_map *map);
+void			map_maker(t_map *map, int x, int y);
+void			map_printer(t_map *map);
 void			ft_error(int error);
 void			read_map(t_map *map, char *filename);
 void			table_counter(t_map *map, char *filename);
